@@ -2,22 +2,34 @@
 
 import os, shutil
 
-def rename(dir_target,keyword):
-    if os.path.exists(dir_target)== True:
-        #指定されたディレクトリのファイル一覧を取得
-        file_list = os.listdir(dir_target)
-        #ファイル名にkeywordがついているファイルを抽出
-        target_list=[]
-        for item in file_list:
-            if keyword in item:
-                target_list.append(item)
-        #リネーム
-        for target in target_list:
-            new_name =target.replace(keyword,"")
-            shutil.move(dir_target + "\\" + target, dir_target + "\\" + new_name)
-        return len(target_list)
-
+#指定されたディレクトリが存在するか確認し、ある場合はディレクトリ内のファイル、フォルダ一覧を返す関数
+def dir_check(dir_input):
+    if os.path.exists(dir_input)== True:
+        return os.listdir(dir_input)
     else:
-        print("指定されたディレクトリは存在しません。")  
-        return None
-        
+        return False
+
+
+#ディレクトリ内のファイル、フォルダから指定された単語の含まれる物を抽出する関数
+def file_filter(path_, keyword_input, folder,*file_list ):
+    filtered_list =[]
+    for item in file_list:
+        if keyword_input in item:
+            if os.path.isdir(path_+"\\"+ item) and folder==False:
+                pass
+            elif item == keyword_input:
+                pass
+            else:
+                filtered_list.append(item)
+    return filtered_list
+
+#リネームする関数
+def rename(dir_ ,keyword,*file_list,):
+    for orig_name in file_list:
+        new_name = orig_name.replace(keyword,"")
+        shutil.move(dir_ + "\\" + orig_name, dir_ + "\\" + new_name)
+    return True
+
+
+#TODO 拡張子が変更されるファイルの有無を出力する関数
+#TODO 最後に実行したディレクトリと単語を保存する機能の追加
