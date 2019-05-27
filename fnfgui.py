@@ -51,7 +51,7 @@ if keyword_init !="" and dir_init != "":
     latest_config.clear()
 latest_config.close()
 
-#入力欄1（ディレクトリを入力する欄）
+#入力欄1（パスを入力する欄）
 tkinter.Label(text=form1_text, font=label_font).pack()
 dir_entry = tkinter.Entry(root, textvariable=dir_buffer, width=70)
 dir_entry.insert(tkinter.END, dir_init)
