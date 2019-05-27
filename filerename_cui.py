@@ -9,8 +9,8 @@ import namefix as nf
 dir_ ="" #変更対象のあるディレクトリ
 keyword="_orig" #変更する単語。
 folder_set = False #フォルダを変更対象に含めるかどうか。標準では含めない。
-filename_restriction =["\\","*","?",";",":","/","<",">","|",] #ファイル名に使用できない文字のリスト(現時点では不使用)
-filepath_limit = 260 #パスを含めたファイル名の文字数上限（現時点では不使用）
+#filename_restriction =["\\","*","?",";",":","/","<",">","|",] #ファイル名に使用できない文字のリスト(現時点では不使用)
+#filepath_limit = 260 #パスを含めたファイル名の文字数上限（現時点では不使用）
 
 
 
@@ -21,7 +21,8 @@ try:
     dir_ = latest_config["dir_"]
 except KeyError:
     pass
-latest_config.clear()
+if keyword != "" and dir_ != "":
+    latest_config.clear()
 latest_config.close()
 
 
@@ -60,7 +61,7 @@ else:
         #変更処理を実行
         nf.rename(dir_, keyword,*file_list)
     else:
-        print("変更するファイルはアリません。")
+        print("変更するファイルはありません。")
 
     #実施後に設定を保存する
     config = shelve.open("config")

@@ -47,8 +47,8 @@ except KeyError:
     keyword_init = ""
     dir_init = ""
     
-
-latest_config.clear()
+if keyword_init !="" and dir_init != "":
+    latest_config.clear()
 latest_config.close()
 
 #入力欄1（ディレクトリを入力する欄）

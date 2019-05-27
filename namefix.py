@@ -32,4 +32,3 @@ def rename(dir_ ,keyword,*file_list,):
 
 
 #TODO 拡張子が変更されるファイルの有無を出力する関数
-#TODO 最後に実行したディレクトリと単語を保存する機能の追加
