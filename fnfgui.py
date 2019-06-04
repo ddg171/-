@@ -12,7 +12,7 @@ import namefix  as nf
 
 #基本設定
 app_name = "ファイル名から単語を消すやつ"
-app_size = "500x170" 
+app_size = "500x165" 
 
 #rootウィンドウの設定
 root = tkinter.Tk()
@@ -108,7 +108,5 @@ def btn1_action(event):
 btn1 = tkinter.Button(text="実行", font=btn_font)
 btn1.bind("<Button-1>", btn1_action)
 btn1.pack(anchor = 'se' )
-
-
 
 root.mainloop()
