@@ -30,5 +30,7 @@ def rename(dir_ ,keyword,*file_list,):
         shutil.move(dir_ + "\\" + orig_name, dir_ + "\\" + new_name)
     return True
 
+#ダイアログでフォルダ選択を行う関数
+
 
 #TODO 拡張子が変更されるファイルの有無を出力する関数
